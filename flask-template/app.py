@@ -27,17 +27,17 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    user = {"name": "Skyla", "status": "platinum"}
-    return render_template('index.html', user=user)
+    #user = {"name": "Skyla", "status": "platinum"}
+    return render_template('index.html')
 
-@app.route('/country', methods=['GET', 'POST'])
+@app.route('/results', methods=['GET', 'POST'])
 def country():
     if request.method=="GET":
         return "You have not filled out the form."
     else:
-        country = request.form['country']
-        waterAnswer = waterConsumption(country)
-        return waterAnswer
+        answers = {"NY": request.form['New York'], "CA": request.form['California'],"MD": request.form['Maryland'],"TX":request.form['Texas'],"FL":request.form["Florida"]}
+        waterAnswer = waterConsumption(answers)
+        return render_template('results.html', waterAnswer=waterAnswer)
 
 
 # app = Flask(__name__)

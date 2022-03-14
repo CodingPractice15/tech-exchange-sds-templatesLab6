@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Flask Template</title>
+<link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<h1>Hello {{user["name"]}}</h1>
+<p>You're a {{user["status"]}} user, and it's great to have you back!</p>
+<form method="post" action="/country">
+    <input type="text" name="country" placeholder="type a country"/>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
