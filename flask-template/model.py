@@ -12,5 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-def waterConsumption(answers):
-    return answers['CA']
+def userStateAnswers(answers):
+    answerKey = {"NY": 'Albany', "CA": 'San Francisco', "MD": 'Annapolis',"TX": 'Dallas', "FL": 'Tallahassee'}
+    score = 0
+
+    for key in answers:
+        if answers[key] == answerKey[key]:
+            score += 1
+
+    return score

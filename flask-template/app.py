@@ -31,27 +31,10 @@ def index():
     return render_template('index.html')
 
 @app.route('/results', methods=['GET', 'POST'])
-def country():
+def userStateAnswers():
     if request.method=="GET":
         return "You have not filled out the form."
     else:
-        answers = {"NY": request.form['New York'], "CA": request.form['California'],"MD": request.form['Maryland'],"TX":request.form['Texas'],"FL":request.form["Florida"]}
-        waterAnswer = waterConsumption(answers)
-        return render_template('results.html', waterAnswer=waterAnswer)
-
-
-# app = Flask(__name__)
-
-# # -- Routes section --
-# @app.route('/')
-# @app.route('/index')
-# def index():
-#     return render_template('index.html')
-#     #answers = {"NY": request.form['New York'], "CA": request.form['California'],"MD": request.form['Maryland'],"TX":request.form['Texas'],"FL":request.form["Florida"]}
-
-# @app.route('/results')
-# def results():
-#     if request.method == "GET":
-#         return "This is the results page"
-#     else:
-#         answers = {"NY": request.form['New York'], "CA": request.form['California'],"MD": request.form['Maryland'],"TX":request.form['Texas'],"FL":request.form["Florida"]}
+        answers = {"NY": request.form['New York'], "CA": request.form['California'], "MD": request.form['Maryland'], "TX":request.form['Texas'], "FL":request.form["Florida"]}
+        totalCorrect = userStateAnswers(answers)
+        return render_template('results.html', userStateAnswers=userStateAnswers)
