@@ -15,9 +15,8 @@
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
 from flask import Flask
-# from flask import render_template
-# from flask import request
-
+from flask import render_template
+from flask import request
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -26,5 +25,10 @@ app = Flask(__name__)
 # -- Routes section --
 @app.route('/')
 @app.route('/index')
+@app.route('/index', methods=['GET','POST'])
 def index():
-    return "hello world"
+    if request.method == "GET":
+        return "You have not filled"
+    else:
+        
+        answers = {"NY": request.form['New York'], "CA": request.form['California'],"MD": request.form['Maryland'],"TX":request.form['Texas'],"FL":request.form["Florida"]}
