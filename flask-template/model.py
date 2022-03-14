@@ -12,3 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+def waterConsumption(country):
+    if country=="United States":
+        return "7800 liters per day"
+    elif country=="Brazil":
+        return "5600 liters per day"
+    else:
+        return "I don't have data for " + country + "."

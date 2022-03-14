@@ -17,6 +17,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from model import waterConsumption
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -25,10 +26,32 @@ app = Flask(__name__)
 # -- Routes section --
 @app.route('/')
 @app.route('/index')
-@app.route('/index', methods=['GET','POST'])
 def index():
-    if request.method == "GET":
-        return "You have not filled"
+    user = {"name": "Skyla", "status": "platinum"}
+    return render_template('index.html', user=user)
+
+@app.route('/country', methods=['GET', 'POST'])
+def country():
+    if request.method=="GET":
+        return "You have not filled out the form."
     else:
-        
-        answers = {"NY": request.form['New York'], "CA": request.form['California'],"MD": request.form['Maryland'],"TX":request.form['Texas'],"FL":request.form["Florida"]}
+        country = request.form['country']
+        waterAnswer = waterConsumption(country)
+        return waterAnswer
+
+
+# app = Flask(__name__)
+
+# # -- Routes section --
+# @app.route('/')
+# @app.route('/index')
+# def index():
+#     return render_template('index.html')
+#     #answers = {"NY": request.form['New York'], "CA": request.form['California'],"MD": request.form['Maryland'],"TX":request.form['Texas'],"FL":request.form["Florida"]}
+
+# @app.route('/results')
+# def results():
+#     if request.method == "GET":
+#         return "This is the results page"
+#     else:
+#         answers = {"NY": request.form['New York'], "CA": request.form['California'],"MD": request.form['Maryland'],"TX":request.form['Texas'],"FL":request.form["Florida"]}
