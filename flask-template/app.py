@@ -17,7 +17,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from model import waterConsumption
+from model import userStateAnswers
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -27,14 +27,14 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    #user = {"name": "Skyla", "status": "platinum"}
     return render_template('index.html')
 
 @app.route('/results', methods=['GET', 'POST'])
-def userStateAnswers():
-    if request.method=="GET":
+def answer_key():
+    if request.method == "GET":
         return "You have not filled out the form."
+
     else:
         answers = {"NY": request.form['New York'], "CA": request.form['California'], "MD": request.form['Maryland'], "TX":request.form['Texas'], "FL":request.form["Florida"]}
         totalCorrect = userStateAnswers(answers)
-        return render_template('results.html', userStateAnswers=userStateAnswers)
+        return render_template('results.html', totalCorrect=totalCorrect)

@@ -14,10 +14,9 @@
 
 def userStateAnswers(answers):
     answerKey = {"NY": 'Albany', "CA": 'San Francisco', "MD": 'Annapolis',"TX": 'Dallas', "FL": 'Tallahassee'}
-    score = 0
-
-    for key in answers:
+    for key in answers.keys():
         if answers[key] == answerKey[key]:
-            score += 1
-
-    return score
+            answerKey[key] = 'Correct'
+        else:
+            answerKey[key] = 'Incorrect'
+    return answerKey
