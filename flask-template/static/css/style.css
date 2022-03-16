@@ -13,4 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+body{
+    margin: 2em 3em;
+}
+
+ h1{
+    
+    display: flex;
+    justify-content: center;
+    font-family: 'Fira Sans', sans-serif;
+ }
+
+ .box-question{
+    
+    height: 300px;
+    box-shadow: 5px 5px 5px black;
+    display: grid;
+    place-items: center;
+    
+ }
+ .input{
+     margin: auto;
+     display: block;
+ }
+
 
