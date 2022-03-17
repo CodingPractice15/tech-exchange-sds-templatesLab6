@@ -18,6 +18,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from model import userStateAnswers
+# Team members Benjamin Hansen and Teqwon Norman
 
 # -- Initialization section --
 app = Flask(__name__)
