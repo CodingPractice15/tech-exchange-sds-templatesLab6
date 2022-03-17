@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Page</title>
+    <link rel="stylesheet" href="../static/css/resultstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Result Page</title>
 </head>
 <body>
-    <p>Answer Key:</p>
-    <p>This tells you whether you submitted the correct answers or not<h4>{{totalCorrect}}</h4></p>
+    <h1>Answers received</h1>
+    <div class="result-container">
+        <ul>
+            {% for key,val in totalCorrect.items() %}
+                <li> State: {{key}} your answer is {{val}} 
+                </li>
+    
+            {% endfor %}
+        </ul>
+
+    </div>
+    <!-- <p>Answer Key:</p>
+    <p>This tells you whether you submitted the correct answers or not<h4>{{totalCorrect}}</h4></p> -->
 </body>
 </html>

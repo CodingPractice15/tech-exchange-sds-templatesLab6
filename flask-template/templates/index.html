@@ -18,16 +18,22 @@
     <head>
         <title>Flask Template</title>
         <link rel="stylesheet" href="../static/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>This is a test to see how well you know the states and their capitals.</h1>
-        <form method="post" action="/results">
-            <input type="text" name="New York" placeholder="New York's Capital"/>
-            <input type="text" name="California" placeholder="California's Capital"/>
-            <input type="text" name="Maryland" placeholder="Maryland Capital"/>
-            <input type="text" name="Texas" placeholder="Texas Capital"/>
-            <input type="text" name="Florida" placeholder="Florida Capital"/>
-            <input type="submit" value="Submit"/>
-          </form>
+        <div class="form-container">
+            <form method="post" action="/results" >
+                <input type="text" name="New York" placeholder="New York's Capital"/>
+                <input type="text" name="California" placeholder="California's Capital"/>
+                <input type="text" name="Maryland" placeholder="Maryland Capital"/>
+                <input type="text" name="Texas" placeholder="Texas Capital"/>
+                <input type="text" name="Florida" placeholder="Florida Capital"/>
+                <input type="submit" value="Submit"class= "button"/>
+              </form>
+        </div>
+        
     </body>
 </html>
